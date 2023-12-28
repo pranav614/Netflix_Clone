@@ -10,7 +10,6 @@ const SearchComp = () => {
 
   return (
     <div className="flex-col w-full h-full justify-center items-center">
-         
          <form action="" className='w-full' onSubmit={(e)=>{e.preventDefault()}}>
   <div className="text-white w-full h-80 flex justify-center items-center">
     <input

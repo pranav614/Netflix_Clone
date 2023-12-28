@@ -61,7 +61,7 @@ body{
 }
 .imageContainer{
     position: relative;
-    min-height: 140vh; 
+    min-height: 150vh; 
     min-width: 100vw; 
     overflow: hidden;
 
@@ -162,3 +162,121 @@ body{
   .down-arrow{
     display:none;
   }
+  .searched-img-div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap:12px;
+    margin:3%;
+  }
+  .img1{
+    box-shadow: 2px 18px 5px 5px rgb(49, 49, 49);
+
+  }
+/* My menu css */
+
+  .hamburger {
+    padding: 5px 5px;
+    display: inline-block;
+    cursor: pointer;
+    transition-property: opacity, filter;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    font: inherit;
+    color: inherit;
+    text-transform: none;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    overflow: visible; }
+    .hamburger:hover {
+      opacity: 0.7; }
+    .hamburger.is-active:hover {
+      opacity: 0.7; }
+    .hamburger.is-active .hamburger-inner,
+    .hamburger.is-active .hamburger-inner::before,
+    .hamburger.is-active .hamburger-inner::after {
+      background-color: #ff0000; }
+  
+  .hamburger-box {
+    width: 40px;
+    height: 24px;
+    display: inline-block;
+    position: relative; }
+  
+  .hamburger-inner {
+    display: block;
+    top: 50%;
+    margin-top: -2px; }
+    .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+      width: 40px;
+      height: 4px;
+      background-color: #c90808;
+      border-radius: 4px;
+      position: absolute;
+      transition-property: transform;
+      transition-duration: 0.15s;
+      transition-timing-function: ease; }
+    .hamburger-inner::before, .hamburger-inner::after {
+      content: "";
+      display: block; }
+    .hamburger-inner::before {
+      top: -10px; }
+    .hamburger-inner::after {
+      bottom: -10px; }
+      
+
+
+      .hamburger--collapse .hamburger-inner {
+        top: auto;
+        bottom: 0;
+        transition-duration: 0.13s;
+        transition-delay: 0.13s;
+        transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+        .hamburger--collapse .hamburger-inner::after {
+          top: -20px;
+          transition: top 0.2s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), opacity 0.1s linear; }
+        .hamburger--collapse .hamburger-inner::before {
+          transition: top 0.12s 0.2s cubic-bezier(0.33333, 0.66667, 0.66667, 1), transform 0.13s cubic-bezier(0.55, 0.055, 0.675, 0.19); }
+      
+      .hamburger--collapse.is-active .hamburger-inner {
+        transform: translate3d(0, -10px, 0) rotate(-45deg);
+        transition-delay: 0.22s;
+        transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+        .hamburger--collapse.is-active .hamburger-inner::after {
+          top: 0;
+          opacity: 0;
+          transition: top 0.2s cubic-bezier(0.33333, 0, 0.66667, 0.33333), opacity 0.1s 0.22s linear; }
+        .hamburger--collapse.is-active .hamburger-inner::before {
+          top: 0;
+          transform: rotate(-90deg);
+          transition: top 0.1s 0.16s cubic-bezier(0.33333, 0, 0.66667, 0.33333), transform 0.13s 0.25s cubic-bezier(0.215, 0.61, 0.355, 1); }
+
+  
+          @keyframes fadeIn {
+            from {
+              transform:translateX(100%);
+              opacity: 0;
+            }
+            to {
+              transform:translateX(0%);
+              opacity: 1;
+            }
+          }
+      
+          #navSlider {
+            
+            animation: fadeIn 1s ease-in-out;
+          }
+
+          @media(max-width: 1100px) {
+            .video-name{
+              font-size: 20px;
+            }
+          }
+          @media(max-width: 500px) {
+            .netflix-logo{
+              width:140px
+            }
+          }

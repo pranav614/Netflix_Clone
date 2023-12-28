@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { onAuthStateChanged, signOut } from "firebase/auth";
@@ -16,10 +16,11 @@ const Header = () => {
   const navigate = useNavigate();
   const storeName = useSelector((state) => state.user?.displayName || "");
   const searchBoolean = useSelector((store) => store.mySearch.mySearchComp);
-  const languageValue =useSelector((store)=> store.languageChange.language)
-  const handleChange=(e)=>{
-    dispatch(changeInLanguage(e.target.value))
-  }
+  const languageValue = useSelector((store) => store.languageChange.language);
+
+  const handleChange = (e) => {
+    dispatch(changeInLanguage(e.target.value));
+  };
 
   const handleToggle = () => {
     dispatch(mySearchCompChange());
@@ -62,26 +63,15 @@ const Header = () => {
           </Link>
         </div>
 
-
         {storeName && (
           <div className="flex justify-between w-full  ">
-            <div
-              className="text-white ml-8 cursor-pointer relative list"
-            >
+            <div className="text-white ml-8 cursor-pointer relative list">
               <p>{languageObj[languageValue].list}</p>
               <div className="absolute top-8 listContainer h-[600px] w-[400px] bg-white "></div>
             </div>
 
             <div className="flex  justify-center items-center gap-3">
-            <select name="language" id="languageSelect" onChange={handleChange} className="cursor-pointer bg-transparent border-[1px] px-1 py-1 rounded-sm text-white">
-              {
-                LANGUAGE_ARRAY.map((language)=>(
-                  <option key={language.identifier} value={language.identifier}>{language.value}</option>
-                ))
-              }
-                
-                
-              </select>
+              
               <button className="bg-white px-1 rounded" onClick={handleToggle}>
                 {!searchBoolean ? (
                   <>
@@ -89,30 +79,71 @@ const Header = () => {
                   </>
                 ) : (
                   <div>
-              <span>{languageObj[languageValue].home}</span>
+                    <span>{languageObj[languageValue].home}</span>
                   </div>
-                )}{" "}
+                )}
               </button>
+             { <select
+                name="language"
+                id="languageSelect"
+                onChange={handleChange}
+                className="cursor-pointer bg-transparent border-[1px] px-1 py-1 rounded-sm text-white"
+              >
+                {LANGUAGE_ARRAY.map((language) => (
+                  <option key={language.identifier} value={language.identifier}>
+                    {language.value}
+                  </option>
+                ))}
+              </select>}
               <div className="profileImg relative">
-                <div className="flex items-baseline gap-1">
-                <img className="" src={profile} alt="" />
-                <svg xmlns="http://www.w3.org/2000/svg" className="up-arrow " height="10" viewBox="0 0 24 24" width="10" fill="white">
-        <path d="M12 2L0 14h24L12 2z" />
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" className="down-arrow" height="10" viewBox="0 0 24 24" width="10" fill="white">
-        <path d="M0 0h24v24H0z" fill="none" />
-        <path d="M12 22L24 10 0 10z" />
-      </svg>
+                <div className="flex items-baseline gap-1  ">
+                  <img className="" src={profile} alt="" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="up-arrow "
+                    height="10"
+                    viewBox="0 0 24 24"
+                    width="10"
+                    fill="white"
+                  >
+                    <path d="M12 2L0 14h24L12 2z" />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="down-arrow"
+                    height="10"
+                    viewBox="0 0 24 24"
+                    width="10"
+                    fill="white"
+                  >
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path d="M12 22L24 10 0 10z" />
+                  </svg>
                 </div>
-             
-              <p className="text-white  userName">{storeName}</p>
+                <p className="text-white  userName">{storeName}</p>
               </div>
-              <p className=" cursor-pointer text-white bg-red px-2 py-1 rounded-sm hover:opacity-80" onClick={handleSignOut}>
-              {languageObj[languageValue].signOut}
+              <p
+                className=" cursor-pointer text-white bg-red px-2 py-1 rounded-sm hover:opacity-80"
+                onClick={handleSignOut}
+              >
+                {languageObj[languageValue].signOut}
               </p>
+              
             </div>
           </div>
         )}
+        {!storeName&& <select
+                name="language"
+                id="languageSelect"
+                onChange={handleChange}
+                className="cursor-pointer bg-transparent border-[1px] px-4 py-1.5 mr-36 rounded-sm text-white"
+              >
+                {LANGUAGE_ARRAY.map((language) => (
+                  <option key={language.identifier} value={language.identifier}>
+                    {language.value}
+                  </option>
+                ))}
+              </select>}
       </div>
     </nav>
   );
