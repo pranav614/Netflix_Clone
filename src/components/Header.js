@@ -1,62 +1,20 @@
-import React, { useEffect} from "react";
-import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { onAuthStateChanged, signOut } from "firebase/auth";
-import { auth } from "../utils/firebase";
-import { addUser, removeUser } from "../utils/userSlice";
+import React from "react";
 import { netflixLogo, profile } from "../utils/constants";
 import { Link } from "react-router-dom";
-import { mySearchCompChange } from "../utils/searchToggle";
 import { LANGUAGE_ARRAY } from "../utils/constants";
-import { changeInLanguage } from "../utils/languageState";
 import languageObj from "../utils/languageObject";
+import { useHeader } from "../customHooks/useHeader";
 
 const Header = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const storeName = useSelector((state) => state.user?.displayName || "");
-  const searchBoolean = useSelector((store) => store.mySearch.mySearchComp);
-  const languageValue = useSelector((store) => store.languageChange.language);
-
-  const handleChange = (e) => {
-    dispatch(changeInLanguage(e.target.value));
-  };
-
-  const handleToggle = () => {
-    dispatch(mySearchCompChange());
-  };
-  const handleSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        console.log("signOut successfull");
-        // Sign-out successful.
-      })
-      .catch((error) => {
-        // An error happened.
-      });
-  };
-
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/auth.user
-        const { uid, email, displayName } = user;
-        dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
-        navigate("/mainpage");
-
-        // ...
-      } else {
-        // User is signed out
-        dispatch(removeUser());
-        navigate("/");
-        // ...
-      }
-    });
-  }, [dispatch, navigate]);
+const {storeName,
+  searchBoolean,
+  languageValue,
+  handleChange,
+  handleToggle,
+  handleSignOut,}=useHeader();
   return (
     <nav className="absolute w-full z-10 bg-gradient-to-b from-black to-transparent">
-      <div className=" flex items-center justify-between w-full px-9 ">
+      <div className=" flex items-center justify-between w-full px-9 header">
         <div>
           <Link to="">
             <img className="h-20 w-50 " src={netflixLogo} alt="" />
@@ -136,7 +94,7 @@ const Header = () => {
                 name="language"
                 id="languageSelect"
                 onChange={handleChange}
-                className="cursor-pointer bg-transparent border-[1px] px-4 py-1.5 mr-36 rounded-sm text-white"
+                className="cursor-pointer bg-transparent border-[1px] px-4 py-1.5 rounded-sm text-white"
               >
                 {LANGUAGE_ARRAY.map((language) => (
                   <option key={language.identifier} value={language.identifier}>

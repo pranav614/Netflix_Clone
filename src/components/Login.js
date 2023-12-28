@@ -30,7 +30,7 @@ const Login = () => {
         <div className="w-screen overflow-x-hidden">
           <Header />
           <div className="w-screen flex justify-center items-center ">
-            <form onSubmit={(e)=>{e.preventDefault()}} className="form bg-opacity-70 bg-black flex flex-col gap-2 justify-center mt-20" action="">
+            <form  className="form bg-opacity-70 bg-black flex flex-col gap-2 justify-center mt-20" action="">
 
 
               <h1 className="  text-white s-heading text-start my-4">{signIn?languageObj[languageValue].signIn:languageObj[languageValue].signUp}</h1>
