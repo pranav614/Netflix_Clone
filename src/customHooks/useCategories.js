@@ -1,11 +1,29 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect,useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { addPopular, addSeries, addTopRated } from "../utils/movieCategories";
 import { options } from "../utils/constants";
+import { addToList, removeListItem } from "../utils/addList";
 
 
 const useCategories = () => {
-    const dispatch=useDispatch();
+  const [toogle,settoogle]=useState({});
+  const dispatch=useDispatch();
+  const movieList=useSelector((store)=>store.list.myList);
+  const popularMovies = useSelector((store) => store.categories.popular);
+  
+  const handleAddList=(card)=>{
+    settoogle((prevToggles) => ({
+      ...prevToggles,
+      [card.id]: !prevToggles[card.id],
+    }))
+    if(!toogle[card.id]){
+      dispatch(addToList(card));
+    }
+    else{
+      dispatch(removeListItem(card.id))
+    }
+    
+  }
     useEffect(()=>{
       fetchedPopularMovies();
       topRated();
@@ -26,6 +44,14 @@ const useCategories = () => {
         const seriesData= await seriesFeteched.json();
         dispatch(addSeries(seriesData.results));
         }
+        return {
+          handleAddList,
+          movieList,
+          popularMovies,
+          toogle,
+
+        }
 }
+
 
 export default useCategories

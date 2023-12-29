@@ -13,6 +13,8 @@ export const useSmallHeader=()=>{
     const storeName = useSelector((state) => state.user?.displayName || "");
     const searchBoolean = useSelector((store) => store.mySearch.mySearchComp);
     const languageValue = useSelector((store) => store.languageChange.language);
+  const popularMovieList=useSelector((store)=>store.list.myList)
+
     const [isActive, setIsActive] = useState(false);
     const navSlider=document.querySelector('#navSlider');
     const handleClick = () => {
@@ -63,6 +65,7 @@ export const useSmallHeader=()=>{
         searchBoolean,
         languageValue,
         isActive,
+        popularMovieList,
         handleClick,
         handleChange,
         handleToggle,

@@ -2,8 +2,8 @@ import React from 'react'
 import VideoTitle from './VideoTitle'
 
 import {  useSelector } from 'react-redux';
-import useVideoData from '../customHooks/useVideoData';
-import { youtubeLink } from '../utils/constants';
+import useVideoData from '../../customHooks/useVideoData';
+import { youtubeLink } from '../../utils/constants';
 
 
 

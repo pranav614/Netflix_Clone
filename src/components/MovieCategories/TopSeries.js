@@ -1,9 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import useCategories from "../../customHooks/useCategories";
 
 const TopSeries = () => {
   const series = useSelector((store) => store.categories.series);
   
+  const {handleAddList,toogle}=useCategories();
  
 
 if (series  == null) {
@@ -31,25 +33,24 @@ if (series  == null) {
     />
     <div
       className="text-white my"
-      
     >
-      <div className="rounder mt-1 px-0.4 py-0.4">
-        
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="38"
-            viewBox="0 -960 960 960"
-            width="30"
-          >
-            <path
-              d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"
-              fill="white"
-            />
-          </svg>
-        
-         
-        
-      </div>
+       <div className="rounder mt-1 px-0.4 py-0.4" onClick={()=>{handleAddList(topRatedCard)}} >
+      {
+        !toogle[topRatedCard.id]? (<svg
+        xmlns="http://www.w3.org/2000/svg"
+        height="38"
+        viewBox="0 -960 960 960"
+        width="30"
+      >
+        <path
+          d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"
+          fill="white"
+        />
+      </svg>) :(<svg xmlns="http://www.w3.org/2000/svg" height="38" viewBox="0 -960 960 960" width="30" fill="white"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>)
+      }
+      
+       
+    </div>
     </div>
   </div>
 ))}

@@ -4,17 +4,19 @@ import { Link } from "react-router-dom";
 import { LANGUAGE_ARRAY } from "../utils/constants";
 import languageObj from "../utils/languageObject";
 import { useHeader } from "../customHooks/useHeader";
+import AddedList from "./AddedMovieList/AddedList";
 
 const Header = () => {
-const {storeName,
-  searchBoolean,
-  languageValue,
-  handleChange,
-  handleToggle,
-  handleSignOut,}=useHeader();
+  const {storeName,
+    searchBoolean,
+    languageValue,
+    popularMovieList,
+    handleChange,
+    handleToggle,
+    handleSignOut,}=useHeader();
   return (
     <nav className="absolute w-full z-10 bg-gradient-to-b from-black to-transparent">
-      <div className=" flex items-center justify-between w-full px-9 header">
+      <div className=" flex items-center justify-between w-full px-9 header ">
         <div>
           <Link to="">
             <img className="h-20 w-50 " src={netflixLogo} alt="" />
@@ -25,7 +27,9 @@ const {storeName,
           <div className="flex justify-between w-full  ">
             <div className="text-white ml-8 cursor-pointer relative list">
               <p>{languageObj[languageValue].list}</p>
-              <div className="absolute top-8 listContainer h-[600px] w-[400px] bg-white "></div>
+              <div className="absolute top-8 listContainer h-[600px] w-[400px]  overflow-y-scroll ">
+                      <AddedList  array={popularMovieList} />  
+              </div>
             </div>
 
             <div className="flex  justify-center items-center gap-3">
@@ -94,7 +98,7 @@ const {storeName,
                 name="language"
                 id="languageSelect"
                 onChange={handleChange}
-                className="cursor-pointer bg-transparent border-[1px] px-4 py-1.5 rounded-sm text-white"
+                className="cursor-pointer bg-transparent border-[1px] px-4 py-1.5 mr-1 rounded-sm text-white"
               >
                 {LANGUAGE_ARRAY.map((language) => (
                   <option key={language.identifier} value={language.identifier}>

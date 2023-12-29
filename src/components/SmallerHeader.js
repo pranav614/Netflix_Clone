@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { LANGUAGE_ARRAY } from "../utils/constants";
 import languageObj from "../utils/languageObject";
 import { useSmallHeader } from "../customHooks/useSmallHeader";
+import AddedList from "./AddedMovieList/AddedList";
 
 const SmallerHeader = () => {
  
@@ -11,6 +12,7 @@ const SmallerHeader = () => {
     searchBoolean,
     languageValue,
     isActive,
+    popularMovieList,
     handleClick,
     handleChange,
     handleToggle,
@@ -30,7 +32,9 @@ const SmallerHeader = () => {
             <div>
         <div className="text-white cursor-pointer relative list">
               <p>{languageObj[languageValue].list}</p>
-              <div className="absolute top-8 listContainer h-[600px] w-[400px] bg-white "></div>
+              <div className="absolute top-8 listContainer h-[600px] w-[250px]  overflow-y-scroll ">
+                      <AddedList  array={popularMovieList} />  
+              </div>
             </div>
         </div>
             

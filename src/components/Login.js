@@ -3,22 +3,17 @@ import Header from "./Header";
 import { netflixBackgroundImg } from "../utils/constants";
 import { useLogin } from "../customHooks/useLogin";
 import languageObj from "../utils/languageObject";
-import languageState from "../utils/languageState";
+
+import LoginFooter from "./Footer/LoginFooter";
+
+
+
+// import add user after comming from college
 
 const Login = () => {
-
-  const {signIn,
-    fullNameValue,
-    emailValue,
-    errorFullNameSentence,
-    errorEmailSentence,
-    passwordValue,
-    errorPasswordSentence,
-    languageValue,
-    validateHandle,
-    myForm}=useLogin();
+  const {signIn,fullNameValue,emailValue,errorEmailSentence,passwordValue,errorPasswordSentence,errorFullNameSentence,languageValue,validateHandle,myForm}=useLogin();
   return (
-    <div className="">
+    <div className="login-main-conatiner">
       <div className="imageContainer">
         <img
           className="mainImg transform  scale-140  scale-y-150 transition-transform duration-300 "
@@ -30,7 +25,7 @@ const Login = () => {
         <div className="w-screen overflow-x-hidden">
           <Header />
           <div className="w-screen flex justify-center items-center ">
-            <form  className="form bg-opacity-70 bg-black flex flex-col gap-2 justify-center mt-20" action="">
+            <form onSubmit={(e)=>{e.preventDefault()}} className="form bg-opacity-70 bg-black flex flex-col gap-2 justify-center mt-20  " action="">
 
 
               <h1 className="  text-white s-heading text-start my-4">{signIn?languageObj[languageValue].signIn:languageObj[languageValue].signUp}</h1>
@@ -48,8 +43,11 @@ const Login = () => {
 
             </form>
           </div>
+          <div className=""><LoginFooter/></div>
         </div>
+        
       </div>
+      
     </div>
   );
 };

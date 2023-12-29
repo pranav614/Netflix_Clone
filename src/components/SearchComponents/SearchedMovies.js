@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { options } from '../utils/constants';
+import { options } from '../../utils/constants';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 
@@ -25,7 +25,7 @@ const SearchedMovies = () => {
         )
     }
   return (
-    <div className='searched-img-div'>
+    <div className='searched-img-div :'>
         {
           movieData.length===0?<div><p className='text-white text-xl'>Movie which you have serached is not present.🥲</p></div>:
             movieData.map((movie)=>(

@@ -7,52 +7,49 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useEffect } from "react";
 import { addUser, removeUser } from "../utils/userSlice";
 
-export const useHeader=()=>{
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const storeName = useSelector((state) => state.user?.displayName || "");
-    const searchBoolean = useSelector((store) => store.mySearch.mySearchComp);
-    const languageValue = useSelector((store) => store.languageChange.language);
-  
-    const handleChange = (e) => {
-      dispatch(changeInLanguage(e.target.value));
-    };
-  
-    const handleToggle = () => {
-      dispatch(mySearchCompChange());
-    };
-    const handleSignOut = () => {
-      signOut(auth)
-        .then(() => {
-          console.log("signOut successfull");
-          // Sign-out successful.
-        })
-        .catch((error) => {
-          // An error happened.
-        });
-    };
-  
-    useEffect(() => {
-      onAuthStateChanged(auth, (user) => {
-        if (user) {
-          // User is signed in, see docs for a list of available properties
-          // https://firebase.google.com/docs/reference/js/auth.user
-          const { uid, email, displayName } = user;
-          dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
-          navigate("/mainpage");
-  
-          // ...
-        } else {
-          // User is signed out
-          dispatch(removeUser());
-          navigate("/");
-          // ...
-        }
+export const useHeader = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { displayName } = useSelector((state) => state.user || {});
+  const searchBoolean = useSelector((store) => store.mySearch.mySearchComp);
+  const languageValue = useSelector((store) => store.languageChange.language);
+  const popularMovieList=useSelector((store)=>store.list.myList)
+
+
+  const handleChange = (e) => {
+    dispatch(changeInLanguage(e.target.value));
+  };
+
+  const handleToggle = () => {
+    dispatch(mySearchCompChange());
+  };
+
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("Sign-out successful");
+      })
+      .catch((error) => {
+        console.error("Sign-out error:", error);
       });
-    }, [dispatch, navigate]);
-    return {storeName,
+  };
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName } = user;
+        dispatch(addUser({ uid, email, displayName }));
+        navigate("/mainpage");
+      } else {
+        dispatch(removeUser());
+        navigate("/");
+      }
+    });
+  }, [dispatch, navigate]);
+    return {storeName: displayName,
         searchBoolean,
         languageValue,
+        popularMovieList,
         handleChange,
         handleToggle,
         handleSignOut,

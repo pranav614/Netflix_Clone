@@ -1,5 +1,5 @@
 import React from 'react'
-import languageObj from '../utils/languageObject'
+import languageObj from '../../utils/languageObject'
 import { useSelector } from 'react-redux';
 
 const VideoTitle = ({videoName}) => {

@@ -1,8 +1,8 @@
 import React from "react";
-import TrendingMovies from "./TrendingMovies";
-import PopularMovies from "./PopularMovies";
-import TopSeries from "./TopSeries";
-import TopRated from "./TopRated";
+import TrendingMovies from "./MovieCategories/TrendingMovies";
+import PopularMovies from "./MovieCategories/PopularMovies";
+import TopSeries from "./MovieCategories/TopSeries";
+import TopRated from "./MovieCategories/TopRated";
 import languageObj from "../utils/languageObject";
 import { useSelector } from "react-redux";
 

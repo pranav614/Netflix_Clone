@@ -1,6 +1,5 @@
 import React from 'react'
-import Video from './Video'
-
+import Video from './BackGroundVideoContainer/Video'
 import useNewMovies from '../customHooks/useNewMovies'
 import { useSelector } from 'react-redux'
 
