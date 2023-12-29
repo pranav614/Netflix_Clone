@@ -8,7 +8,10 @@ body{
     overflow-x: hidden; 
     background-color: black;
     z-index: -3;
-
+}
+html{
+  margin: 0;
+    padding:0;
 }
 
 .netflix-Heading{
@@ -283,19 +286,16 @@ body{
           }
           @media(max-width: 1115px) {
             .footer{
-
               gap:50px
             }
           }
           @media(max-width: 916px) {
             .footer{
-
               gap:30px
             }
           }
           @media(max-width: 843px) {
             .footer{
-
               gap:15px
             }
           }
@@ -311,6 +311,8 @@ body{
             .email-input{
               width:100%;
              
+            }
+            .header-container {background-color: black;
             }
             .header{
               padding-left:1px ;
@@ -349,3 +351,37 @@ body{
             width:fit-content;
             box-shadow: 0.5px 0.5px 3px 2px rgb(48, 49, 49);
           }
+          @media(max-width:916px){
+            .video-container{
+              bottom:230px;
+            }
+          }
+          @media(max-width:555px){
+            .video-container{
+              bottom:190px;
+            }
+            .video-name{
+              font-size: 20px;
+            }
+            .more-info-btn{
+              padding-left:12px;
+              padding-right:12px;
+
+            }
+          }
+          @media(max-width:461px){
+            .video-container{
+              bottom:190px;
+            }
+            .video-name{
+              font-size: 16px;
+            }
+            .more-info-btn{
+              padding-left:6px;
+              padding-right:6px;
+            }
+            .header-container {
+              padding: 0;
+            }
+          }
+          

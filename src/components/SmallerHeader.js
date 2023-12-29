@@ -20,15 +20,15 @@ const SmallerHeader = () => {
 
   return (
     <nav className="absolute w-full z-10 bg-gradient-to-b from-black to-transparent">
-      <div className=" flex items-center justify-between px-2 ">
+      <div className=" flex items-center justify-between px-2 header-container ">
         <div>
           <Link to="">
             <img className="h-20 w-40 netflix-logo" src={netflixLogo} alt="" />
           </Link>
         </div>
 
-   <div className="flex justify-center items-center gap-1.5">   
-        <div className="flex gap-3 justify-center items-center ">
+   <div className="flex justify-center items-center gap-1">   
+        <div className="flex gap-1.5 justify-center items-center ">
             <div>
         <div className="text-white cursor-pointer relative list">
               <p>{languageObj[languageValue].list}</p>
@@ -40,10 +40,10 @@ const SmallerHeader = () => {
             
        {storeName &&(
         
-         <button className="bg-white px-1 py-0.25  rounded" onClick={handleToggle}>
+         <button className="bg-white  py-0.25  rounded" onClick={handleToggle}>
         {  !searchBoolean ? (
                   <>
-                    <span className="">{languageObj[languageValue].search}</span>
+                    <span className=""><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg></span>
                   </>
                 ) : (
                   <div>
