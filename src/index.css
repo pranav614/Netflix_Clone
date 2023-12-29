@@ -368,10 +368,35 @@ html{
               padding-right:12px;
 
             }
+
+          }
+          @media(max-width:485px){
+           .footer-sub-div1{
+            all:unset;
+            display: flex;
+            flex-direction: row;
+            gap:70px;
+           }
+           .footer-sub-div2{
+            all:unset;
+            display: flex;
+            flex-direction: row;
+            gap:20px;
+           }
+           .footer-sub-div3{
+            all:unset;
+            display: flex;
+            flex-direction: row;
+            gap:13px;
+           }
+           .footer{
+            flex-direction: column;
+           }
+            
           }
           @media(max-width:461px){
             .video-container{
-              bottom:190px;
+              bottom:150px;
             }
             .video-name{
               font-size: 16px;

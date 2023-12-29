@@ -15,7 +15,7 @@ const Header = () => {
     handleToggle,
     handleSignOut,}=useHeader();
   return (
-    <nav className="absolute w-full z-10 bg-gradient-to-b from-black to-transparent">
+    <nav className=" w-full z-10 bg-gradient-to-b from-black to-transparent">
       <div className=" flex items-center justify-between w-full px-9 header ">
         <div>
           <Link to="">

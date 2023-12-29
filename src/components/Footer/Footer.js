@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div className='w-full text-[#5D5D5D] bg-black opacity-70 pt-10 '>
+    <div className='w-full text-[#8a8888] bg-black opacity-70 pt-10 '>
         <div className='mx-[20%] mb-20 text-sm w-90 footer-sub-container'>
         <h1 className='text-start mb-5 text-sm' ><span>Questions?</span>  <span>Call</span> <span>+99999999999</span> </h1>
         <div className='flex w-100% pb-10  gap-24 footer '>
@@ -16,10 +16,7 @@ const Footer = () => {
             </div>
 
             <div className='flex gap-12 footer-child '>
-
                 <p>Terms of Use</p>
-            
-           
                 <p>Privacy</p>
 
             </div>

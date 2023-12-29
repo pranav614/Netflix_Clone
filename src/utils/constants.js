@@ -1,10 +1,12 @@
+
+
 export const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMDBhZDY5OGIyMmViNGU0MDg4ZDBmMDBiZDY1MDA0NiIsInN1YiI6IjY1ODRlYjNjNzFmMDk1NTdjNTIzY2I2OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.LIrOYhtJKB94sVsKyTt7nuGEwneJb_w792bgSPjtEh4'
-    }
-  };
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMDBhZDY5OGIyMmViNGU0MDg4ZDBmMDBiZDY1MDA0NiIsInN1YiI6IjY1ODRlYjNjNzFmMDk1NTdjNTIzY2I2OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.LIrOYhtJKB94sVsKyTt7nuGEwneJb_w792bgSPjtEh4'
+  }
+};
 
 export const animeOptions = {
 	method: 'GET',

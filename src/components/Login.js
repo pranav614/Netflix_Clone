@@ -3,7 +3,6 @@ import Header from "./Header";
 import { netflixBackgroundImg } from "../utils/constants";
 import { useLogin } from "../customHooks/useLogin";
 import languageObj from "../utils/languageObject";
-
 import LoginFooter from "./Footer/LoginFooter";
 
 
