@@ -27,7 +27,7 @@ const Header = () => {
           <div className="flex justify-between w-full  ">
             <div className="text-white ml-8 cursor-pointer relative list">
               <p>{languageObj[languageValue].list}</p>
-              <div className="absolute top-8 listContainer h-[600px] w-[400px]  overflow-y-scroll ">
+              <div className="absolute top-8 listContainer h-[600px] w-[400px] z-20  overflow-y-scroll ">
                       <AddedList  array={popularMovieList} />  
               </div>
             </div>

@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 const SecondaryContainer = () => {
   const languageValue =useSelector((store)=> store.languageChange.language)
   return (
-    <div className=" -mt-28 relative z-12" >
+    <div className=" -mt-48 relative z-12" >
       <h1 className="text-white netflix-Heading mb-5 ml-10">{languageObj[languageValue].trendingMovies}</h1>
       <TrendingMovies />
       <h1 className="text-white netflix-Heading mb-5 ml-10">{languageObj[languageValue].series}</h1>
